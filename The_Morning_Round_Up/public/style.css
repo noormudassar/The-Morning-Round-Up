@@ -1,6 +1,7 @@
 #header {
   font-family: "Edu SA Beginner", cursive;
-  margin-top: 2%;
+  /* margin-top: 2%; */
+  background-color: #f3cfc6;
 }
 
 #navbar {

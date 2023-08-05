@@ -6,4 +6,9 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
-app.listen(4000, () => console.log(`Server running on 4000`));
+
+const { getFortune } = require("./controller");
+
+app.get("/api/fortune", getFortune);
+
+app.listen(4000, () => console.log("Server running on 4000"));
