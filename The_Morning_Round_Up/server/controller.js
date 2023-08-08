@@ -5,6 +5,9 @@
 //   },
 // };
 
+const tasks = require("./db.json");
+let taskId = 0;
+
 module.exports = {
   getFortune: (req, res) => {
     const fortunes = [
@@ -18,5 +21,19 @@ module.exports = {
     let randomFortune = fortunes[randomIndex];
 
     res.status(200).send(randomFortune);
+  },
+  getTask: (req, res) => {
+    console.log(task);
+    res.status(200).send(task);
+  },
+  createTask: (req, res) => {
+    const { task } = req.body;
+    let newTask = {
+      id: taskId,
+      task,
+    };
+    tasks.push(newTask);
+    res.status(200).send(tasks);
+    taskId++;
   },
 };
