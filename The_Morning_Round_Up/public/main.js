@@ -76,7 +76,7 @@ const createTask = (body) =>
 function submitHandler(e) {
   e.preventDefault();
 
-  let task = document.querySelector("#net-item");
+  let task = document.querySelector("#new-item");
 
   let bodyObj = {
     task: task.value,
@@ -90,7 +90,8 @@ function submitHandler(e) {
 function createTaskCard(task) {
   const taskCard = document.createElement("div");
   taskCard.classList.add("task-card");
-  taskCard.innerHTML = `<p class="task">${task.task}</p>`;
+  taskCard.id = `card-${task.id}`;
+  taskCard.innerHTML = `<p class="task" id="task-${task.id}">${task.task}</p>`;
 
   tasksContainer.appendChild(taskCard);
 }
