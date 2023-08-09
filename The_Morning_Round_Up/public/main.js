@@ -1,7 +1,14 @@
 const fortuneButton = document.getElementById("fortuneButton");
 const addButton = document.getElementById("addButton");
 const newInput = document.getElementById("new-item");
+const taskContainer = document.getElementById("list-container");
 let tasks = [];
+
+const taskCallback = ({ data: tasks }) => displayTasks(tasks);
+const errCallback = (err) => console.log(err);
+
+const getAllTasks = () =>
+  axios.get(baseUrl).then(taskCallback).catch(errCallback);
 
 const getFortune = () => {
   axios
@@ -31,5 +38,23 @@ const createTask = (event) => {
     });
 };
 
+function createTaskCard(task) {
+  const tasksCard = document.createElement("div");
+  tasksCard.classList.add("task-card");
+
+  tasksCard.innerHTML = ` <p class="address">${task}</p>`;
+
+  taskContainer.appendChild(tasksCard);
+}
+
+function displayTasks(arr) {
+  taskContainer.innerHTML = ``;
+  for (let i = 0; i < arr.length; i++) {
+    createTaskCard(arr[i]);
+  }
+}
+
 // fortuneButton.addEventListener("click", getFortune);
 addButton.addEventListener("click", createTask);
+
+getAllTasks;

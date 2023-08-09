@@ -13,6 +13,12 @@ const { getFortune, getTask, createTask } = require("./controller");
 app.get("/todolist", (req, res) =>
   res.sendFile(path.join(__dirname, "../public/todolist.html"))
 );
+// app.get("/home", (req, res) =>
+//   res.sendFile(path.join(__dirname, "../public/index.html"))
+// );
+// app.get("/fortune", (req, res) =>
+//   res.sendFile(path.join(__dirname, "../public/fortune.html"))
+// );
 
 app.get("/api/fortune", getFortune); // get fortunes
 app.get("/api/task", getTask); // get task
