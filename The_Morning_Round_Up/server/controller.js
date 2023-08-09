@@ -23,8 +23,8 @@ module.exports = {
     res.status(200).send(randomFortune);
   },
   getTask: (req, res) => {
-    console.log(task);
-    res.status(200).send(task);
+    console.log(tasks);
+    res.status(200).send(tasks);
   },
   createTask: (req, res) => {
     const { task } = req.body;
