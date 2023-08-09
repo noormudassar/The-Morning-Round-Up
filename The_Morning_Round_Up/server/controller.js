@@ -6,7 +6,7 @@
 // };
 
 const tasks = require("./db.json");
-let taskId = 0;
+let taskId = 2;
 
 module.exports = {
   getFortune: (req, res) => {
